@@ -240,7 +240,7 @@ void struct_specifier(Type *type)
 		syntax_state = SNTX_NUL;
 	else							// 适用于结构变量声明
 		syntax_state = SNTX_SP;
-	syntax_indent();	
+	//syntax_indent();	
 	
 	if (v < TK_IDENT)				// 关键字不能作为结构名称
 		expect("结构体名");
@@ -516,7 +516,7 @@ void parameter_type_list(Type *type,int func_call)
 		syntax_state = SNTX_LF_HT;
 	else							// 函数声明
 		syntax_state = SNTX_NUL;
-	syntax_indent();
+	//syntax_indent();
 	
 	// 此处将函数返回类型存储，然后指向参数，最后将type设为函数类型，引用的相关信息放在ref中
 	s = sym_push(SC_ANOM, type, func_call, 0);
@@ -758,7 +758,7 @@ void return_statement()
 		syntax_state = SNTX_NUL;
 	else						// 适用于 return <expression>;
 		syntax_state = SNTX_SP;
-	syntax_indent();
+	//syntax_indent();
 	
 	if (token != TK_SEMICOLON) 
 	{
@@ -1160,28 +1160,28 @@ void print_tab(int n)
  * 如果必须根据新取单词类型判断输出格式，则在取该单词前设置syntax_state = SNTX_DELAY，暂不输出，
  * 待取出新单词后，根据单词类型设置syntax_state，重新调用该函数根据syntax_state，进行适当输出
  **********************************************************/
-void syntax_indent()
-{
-	switch(syntax_state)
-	{
-		case SNTX_NUL:
-			color_token(LEX_NORMAL);
-			break;	
-		case SNTX_SP:
-			printf(" ");
-			color_token(LEX_NORMAL);
-			break;	
-		case SNTX_LF_HT:
-			{	
-				if(token == TK_END)		// 遇到'}',缩进减少一级
-				syntax_level--;
-				printf("\n");
-				print_tab(syntax_level);				
-			}
-			color_token(LEX_NORMAL);
-			break;		
-		case SNTX_DELAY:
-			break;
-	}	
-	syntax_state = SNTX_NUL;
-}
+// void syntax_indent()
+// {
+// 	switch(syntax_state)
+// 	{
+// 		case SNTX_NUL:
+// 			color_token(LEX_NORMAL);
+// 			break;	
+// 		case SNTX_SP:
+// 			printf(" ");
+// 			color_token(LEX_NORMAL);
+// 			break;	
+// 		case SNTX_LF_HT:
+// 			{	
+// 				if(token == TK_END)		// 遇到'}',缩进减少一级
+// 				syntax_level--;
+// 				printf("\n");
+// 				print_tab(syntax_level);				
+// 			}
+// 			color_token(LEX_NORMAL);
+// 			break;		
+// 		case SNTX_DELAY:
+// 			break;
+// 	}	
+// 	syntax_state = SNTX_NUL;
+// }

@@ -1,6 +1,7 @@
 // 《自己动手写编译器、链接器》配套源代码
 
 #include <stdio.h>
+#include <stdarg.h>
 #include "./header/windows.h"
 
 /*******************************dynstring.h begin****************************/
@@ -540,5 +541,5 @@ extern char *entry_symbol;
 int pe_find_import(char *symbol);
 void add_runtime_libs();
 void coffrelocs_fixup();
-char *get_lib_path();
+//char *get_lib_path();
 /*******************************outpe.h end****************************/

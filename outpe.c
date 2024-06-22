@@ -318,19 +318,19 @@ void get_entry_addr(struct PEInfo *pe)
 /*********************************************************** 
  * 功能:	得到放置静态库的目录
  **********************************************************/
-char *get_lib_path()
-{
-    /* 我们假定编译需要链接的静态库放在与编译器同级目录的lib文件夹下
-	   此处需要讲一下静态库
-	*/
-    char path[MAX_PATH];
-	char *p;
-    GetModuleFileNameA(NULL, path, sizeof(path));
-	p = strrchr(path,'\\');
-	*p = '\0';
-	strcat(path,"\\lib\\");
-    return strdup(path);
-}
+// char *get_lib_path()
+// {
+//     /* 我们假定编译需要链接的静态库放在与编译器同级目录的lib文件夹下
+// 	   此处需要讲一下静态库
+// 	*/
+//     char path[MAX_PATH];
+// 	char *p;
+//     GetModuleFileNameA(NULL, path, sizeof(path));
+// 	p = strrchr(path,'\\');
+// 	*p = '\0';
+// 	strcat(path,"\\lib\\");
+//     return strdup(path);
+// }
 
 /***********************************************************
  * 功能:	加载需要链接的静态库

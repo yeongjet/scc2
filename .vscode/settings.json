@@ -1,6 +1,8 @@
 {
     "files.associations": {
-        "scc.h": "c"
+        "scc.h": "c",
+        "stdio.h": "c",
+        "windows.h": "c"
     },
     "files.encoding": "gb2312"
 }

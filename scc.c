@@ -80,7 +80,7 @@ void init ()
     
 	init_coff();	
 
-	lib_path = get_lib_path();
+	//lib_path = get_lib_path();
 }
 
 /*********************************************************** 
